@@ -2,7 +2,7 @@
 import express from 'express';
 const router = express.Router();
 
-// Example static news feed data (replace with database or API later)
+// Static news articles (you can replace this with DB or external API later)
 const exampleArticles = [
   {
     title: '🚀 CodeBro Launched!',
@@ -16,7 +16,7 @@ const exampleArticles = [
   }
 ];
 
-// GET /api/news-feed
+// GET /api/tech-news
 router.get('/', (req, res) => {
   res.json({ articles: exampleArticles });
 });
