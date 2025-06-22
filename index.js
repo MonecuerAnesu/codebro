@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Routes
-app.use('/api/news-feed', newsFeedRoute);
+app.use('/api/news-feed', newsRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
