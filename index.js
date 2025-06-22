@@ -1,21 +1,19 @@
+// server.js
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import newsRoutes from './routes/news.js';
-import portfolioRoutes from './routes/portfolio.js';
+import newsFeedRoute from './routes/newsFeed.js';
 
 dotenv.config();
-const app = express();
-const PORT = process.env.PORT || 5000;
 
+const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/news', newsRoutes);
-app.use('/api/portfolio', portfolioRoutes);
+// ✅ Routes
+app.use('/api/news-feed', newsFeedRoute);
 
-app.get('/', (req, res) => {
-  res.send('CodeBro Backend is live');
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
