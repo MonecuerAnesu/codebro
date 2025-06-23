@@ -1,11 +1,10 @@
 import express from 'express';
 import axios from 'axios';
 import dotenv from 'dotenv';
-dotenv.config(); // ✅ Load .env variables
+dotenv.config();
 
 const router = express.Router();
-
-const API_KEY = process.env.NEWS_API_KEY;
+const API_KEY = process.env.NEWS_API_KEY; // from .env
 
 router.get('/', async (req, res) => {
   try {
@@ -24,7 +23,7 @@ router.get('/', async (req, res) => {
 
     res.json({ articles });
   } catch (error) {
-    console.error('❌ Backend API fetch error:', error.message);
+    console.error('❌ GNews API Error:', error.response?.data || error.message);
     res.status(500).json({ message: 'Server error while fetching news' });
   }
 });
